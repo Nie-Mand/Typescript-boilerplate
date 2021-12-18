@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery, takeLatest, all } from 'redux-saga/effects'
 import { Action } from '../helper';
 import * as api from '../services/memo.service'
 import { constants } from '../actions/memo.actions'
@@ -8,7 +8,7 @@ import { constants } from '../actions/memo.actions'
   takeEvery: always make the request 
 */
 
-export function* countAllSaga() {
+function* countAllSaga() {
   yield takeLatest(constants.countAll.request, function* (action: Action) {
     try {
         const payload: { count: number } = yield call(api.countAll)
@@ -23,4 +23,12 @@ export function* countAllSaga() {
       })
     }
 })
+}
+
+
+
+export default function* () {
+  yield all([
+    countAllSaga(),
+  ])
 }

@@ -1,27 +1,8 @@
 import { Illustration, Button, Card } from '@ui'
-import { useEffect, useState } from 'react'
-import { actions } from '../../redux/actions/memo.actions'
-import { useDispatch, useSelector } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { useCountAll } from '../../redux/hooks/memo.hooks'
+
 const Home = () => {
-  const [count, setCount] = useState<number | null>(null)
-
-  const state = useSelector((state: any) => state.memo.countAll)
-
-  const dispatch = useDispatch()
-  const actionHandler = bindActionCreators({ ...actions }, dispatch)
-
-  useEffect(() => {
-    const asyncEffect = async () => {
-      actionHandler.countAll()
-      setTimeout(async () => {
-        //const data = await countAll()
-        setCount(69)
-      }, 4000)
-    }
-
-    asyncEffect()
-  }, [])
+  const countAll = useCountAll()
 
   return (
     <div className="w-screen bg-slate-100">
@@ -47,7 +28,7 @@ const Home = () => {
 
       <div className="h-screen">
         <h1 className="text-center text-5xl">
-          I Spy {count ? `${count} happy moments` : '...'}
+          I Spy {countAll.loading ? '...' : `${countAll.data} happy moments`}
         </h1>
         <div className="flex items-center justify-center ">
           <Illustration src="/assets/illustration.png" credits="merooseth" />

@@ -2,9 +2,6 @@ import axios from 'axios'
 
 const api_url = process.env['NX_API_URL']
 
-console.log(api_url, process.env);
-
-
 export default axios.create({
   baseURL: api_url,
   headers: {
