@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "nextapp": "apps/nextapp",
+    "shared": "libs/shared",
+    "ui": "libs/ui",
+    "webapp": "apps/webapp"
+  }
+}

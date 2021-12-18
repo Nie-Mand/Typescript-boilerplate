@@ -1,0 +1,25 @@
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+body {
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none !important;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #fdac07;
+}
+
+::selection {
+  color: white;
+  background: #fdac07;
+}
+
+.navbar {
+  @apply static bg-white shadow-xl shadow-black px-20 py-5 flex items-center gap-x-7;
+}
