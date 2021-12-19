@@ -13,3 +13,13 @@ export const useCountAll = () => {
 
     return state
 }
+
+export const useGetMyMemos = () => {
+    const state = useSelector((state: any) => state.memo.getMyMemos)
+    const _actions = useActions(actions)
+    useEffect(() => {
+        _actions.getMyMemos()
+    }, [])
+
+    return state
+}

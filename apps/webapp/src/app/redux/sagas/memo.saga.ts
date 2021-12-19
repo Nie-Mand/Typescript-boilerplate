@@ -20,10 +20,28 @@ function* countAllSaga() {
 })
 }
 
+function* getMyMemosSaga() {
+  yield takeLatest(constants.getMyMemos.request, function* () {
+    try {
+        const payload: { memos: any[] } = yield call(api.getMyMemos)
+        yield put({
+          type: constants.getMyMemos.success,
+          payload
+        })
+    } catch (e: any) {
+      yield put({
+        type: constants.getMyMemos.failure,
+        payload: { error: e.message }
+      })
+    }
+})
+}
+
 
 
 export default function* () {
   yield all([
     countAllSaga(),
+    getMyMemosSaga(),
   ])
 }

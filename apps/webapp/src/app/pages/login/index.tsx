@@ -10,8 +10,10 @@ const Login = () => {
 
   const { error, loading, handleLogin } = useLogin(emailRef, passwordRef)
 
+  const api_url = process.env['NX_API_URL']
+
   return (
-    <div className="w-screen h-screen grid place-content-center">
+    <div className="w-screen min-h-screen grid place-content-center">
       <div className="py-10 bg-white w-[400px] shadow-xl rounded-xl">
         <h1 className="text-center py-2">Login</h1>
 
@@ -56,9 +58,11 @@ const Login = () => {
 
           <Button
             fullWidth
+            as="a"
+            href={`${api_url}/auth/github`}
             className=" !bg-social-github !text-white !flex !items-center gap-x-3 focus:!outline-social-github"
           >
-            <GitHub /> Login with GitHub
+            <GitHub /> Register with GitHub
           </Button>
         </div>
       </div>

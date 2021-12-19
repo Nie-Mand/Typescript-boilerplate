@@ -14,6 +14,11 @@ const initialState: State = {
     loading: false,
     error: null
   },
+  getMe: {
+    data: null,
+    loading: false,
+    error: null
+  },
   token: localStorage.getItem('token'),
 }
 
@@ -59,6 +64,26 @@ export default (state: State = initialState, action: Action) =>
         break
 
 
+        case constants.getMe.request:
+          draft.getMe.loading = true
+          draft.getMe.error = null
+        break
+
+        case constants.getMe.failure:
+          draft.getMe.error = action.payload.error
+          draft.getMe.loading = false
+          console.error(action.payload.error);
+          draft.token = null
+          draft.isAuth = false
+          localStorage.removeItem('token')
+          break
+
+        case constants.getMe.success:
+          draft.getMe.loading = false
+          draft.getMe.data = action.payload.me
+        break
+
+
 
 
         case constants.logout:
@@ -76,6 +101,7 @@ type State = {
     isAuth: boolean
     login: AsyncState<null>
     signup: AsyncState<null>
+    getMe: AsyncState<any | null>
     token: string | null
 }
 

@@ -1,8 +1,10 @@
 import { Illustration, Button, Card } from '@ui'
+import { useIsAuth } from '../../redux/hooks/auth.hooks'
 import { useCountAll } from '../../redux/hooks/memo.hooks'
 
 const Home = () => {
   const countAll = useCountAll()
+  const isAuth = useIsAuth()
 
   return (
     <div className="w-screen">
@@ -14,8 +16,12 @@ const Home = () => {
           </h1>
           <h2 className="text-3xl py-5 pb-4">Where Memories make sense!</h2>
 
-          <Button href="/signup" className="self-end text-black" as="link">
-            Start Here
+          <Button
+            href={isAuth ? '/hi' : '/signup'}
+            className="self-end text-black"
+            as="link"
+          >
+            {isAuth ? 'My Profile' : 'Start Here'}
           </Button>
         </div>
 

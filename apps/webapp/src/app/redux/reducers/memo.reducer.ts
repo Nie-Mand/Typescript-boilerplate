@@ -8,6 +8,11 @@ const initialState: State = {
     loading: false,
     error: null
   },
+  getMyMemos: {
+    data: [],
+    loading: false,
+    error: null
+  },
 }
 
 export default (state: State = initialState, action: Action) =>
@@ -29,6 +34,25 @@ export default (state: State = initialState, action: Action) =>
           draft.countAll.data = action.payload.count
         break
 
+
+        case constants.getMyMemos.request:
+          draft.getMyMemos.loading = true
+          draft.getMyMemos.error = null
+        break
+
+        case constants.getMyMemos.failure:
+          draft.getMyMemos.error = action.payload.error
+          draft.getMyMemos.loading = false
+          console.error(action.payload.error);
+          break
+
+        case constants.getMyMemos.success:
+          draft.getMyMemos.loading = false
+          draft.getMyMemos.data = action.payload.memos
+        break
+
+
+        
       default:
         break
     }
@@ -36,5 +60,6 @@ export default (state: State = initialState, action: Action) =>
 
 type State = {
     countAll: AsyncState<number | null>
+    getMyMemos: AsyncState<any[] | null>
 }
 
