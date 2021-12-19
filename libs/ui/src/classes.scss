@@ -1,3 +1,7 @@
 .button {
-  @apply bg-primary w-36 grid place-content-center py-2 rounded-md text-lg font-semibold hover:bg-primary-lighter duration-150 focus:outline focus:outline-offset-2 focus:outline-primary;
+  @apply bg-primary text-black grid place-content-center py-2 rounded-md  font-semibold hover:bg-primary-lighter duration-150 focus:outline focus:outline-offset-2 focus:outline-primary;
+}
+
+.input {
+  @apply mt-1 focus:ring-primary-darker focus:border-primary block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
 }

@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import counter from './reducers/counter.reducer'
 import memo from './reducers/memo.reducer'
+import auth from './reducers/auth.reducer'
+import { routerReducer as router } from './router.redux'
 
-export default  combineReducers({ counter, memo })
+
+export default  combineReducers({ auth, memo, router })

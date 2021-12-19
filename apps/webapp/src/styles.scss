@@ -21,5 +21,5 @@ a {
 }
 
 .navbar {
-  @apply static bg-white shadow-xl shadow-black px-20 py-5 flex items-center gap-x-7;
+  @apply fixed w-full bg-white shadow-xl px-20 py-5 flex items-center gap-x-7;
 }

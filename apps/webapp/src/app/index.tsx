@@ -13,19 +13,21 @@ export function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Provider>
-        <Toaster />
-        <Navbar />
-        <main className="prose">
-          <Routes>
-            {routes.map(
-              ({ path, component: Component, shouldBeloggedIn }: any) =>
-                !shouldBeloggedIn || (isAuth && shouldBeloggedIn) ? (
-                  <Route key={path} path={path} element={<Component />} />
-                ) : null
-            )}
-          </Routes>
-          <Footer />
-        </main>
+        <div className="bg-slate-100">
+          <Toaster />
+          <Navbar />
+          <main className="max-x-full prose prose-headings:m-0">
+            <Routes>
+              {routes.map(
+                ({ path, component: Component, shouldBeloggedIn }: any) =>
+                  !shouldBeloggedIn || (isAuth && shouldBeloggedIn) ? (
+                    <Route key={path} path={path} element={<Component />} />
+                  ) : null
+              )}
+            </Routes>
+            <Footer />
+          </main>
+        </div>
       </Provider>
     </Suspense>
   )

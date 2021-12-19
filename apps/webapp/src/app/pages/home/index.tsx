@@ -5,16 +5,16 @@ const Home = () => {
   const countAll = useCountAll()
 
   return (
-    <div className="w-screen bg-slate-100">
-      <div className="flex justify-evenly items-center h-[87vh]">
+    <div className="w-screen">
+      <div className="flex justify-evenly items-center h-screen">
         <div className="flex flex-col justify-center ">
-          <h1 className="text-7xl my-5">
+          <h1 className="text-7xl py-5">
             <span className="text-primary">D</span>eja
             <span className="text-primary">V</span>ue
           </h1>
-          <h2 className="text-3xl my-5 pb-4">Where Memories make sense!</h2>
+          <h2 className="text-3xl py-5 pb-4">Where Memories make sense!</h2>
 
-          <Button href="/signup" className="self-end text-black">
+          <Button href="/signup" className="self-end text-black" as="link">
             Start Here
           </Button>
         </div>

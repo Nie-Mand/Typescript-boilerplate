@@ -7,11 +7,15 @@ module.exports = {
         primary: '#fdac07',
         'primary-lighter': '#fdca62',
         'primary-darker': '#ca8702',
+
+        social: {
+          github: '#171515',
+        },
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
 }

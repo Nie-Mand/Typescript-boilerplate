@@ -1,13 +1,14 @@
 import { StrictMode } from 'react'
 import * as ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { HistoryRouter as Router } from 'redux-first-history/rr6'
 import App from './app/index'
+import { history } from './app/redux/store'
 
 ReactDOM.render(
   <StrictMode>
-    <BrowserRouter>
+    <Router history={history}>
       <App />
-    </BrowserRouter>
+    </Router>
   </StrictMode>,
   document.getElementById('root')
 )
