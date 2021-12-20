@@ -1,6 +1,7 @@
-# Once | Niemands Boilerplate built with NX
+# Niemands Boilerplate built with NX
 
-This is a boilerplate built with NX, React, NextJS, Express with Typescript Flavour
+This is a boilerplate built with NX, React, NextJS, Express with Typescript Flavour, already configured with TailwindCSS and Redux 
+
 
 ## Setup
 
@@ -45,98 +46,37 @@ import { sharedFunction } from '@shared'
 ## Launch Servers
 
 ```sh
-npm run dev:api
-npm run dev:webapp
-npm run dev:nextapp
+npm run dev:api # to run the backend
+npm run dev:webapp # to run the react app
+npm run dev:nextapp # to run the NextJS app
 ```
 
-# Once
+## API structure
++ **routes**: where you structure your Express Routes
++ **controllers**: Where you keep controllers that they'll be used in routes
++ **services**: where you keep the services that will interact with the model
+> this api was supposed to use TypeORM entities but it's not implemented yet
+> The Api already contains authentification with JWT built manually and a Login with GitHub route
 
-This project was generated using [Nx](https://nx.dev).
+## React App structure
++ **components**: where you keep your shared app's components  that lives in your project context
++ **pages**: where you keep your frontend routes, where each route in defined as a folder with `index.tsx` file inside the `pages/` folder, plus an object that contains the path and if it requires authentification in `src/app/app.routes.ts`
++  **types**: where you keep your typescript types
++  **redux**: a redux store configured with *Redux Saga* and *Redux first History*, plus folders to organize your actions, redux user defined hooks, reducers, sagas, and api services, plus some helper functions that you can find
++  **/assets**: for assets like images and fonts
+> this api was supposed to use TypeORM entities but it's not implemented yet
+   
+## what's in `/shared`
++ Avatar Link generator based on [Dicebear](https://avatars.dicebear.com/) (`avatar`)
++ JWT and Bcrypt functions to sign, hash and verify with friendly functions names (`createToken, verifyToken, hashPassword, verifyPassword`) 
++ Send Email function based on *nodemailer* (`sendEmail`)
++ Send SMS and Verify Phone utilities based on *Twilio* (`sendSMS, createVerifyPhoneNumberRequest, verifyPhoneNumber`)
++ Database connections -currently only for CockroachDB- (`connectToCockroachDb`)
++ other stuffs that I thought I would need in every project
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+> There's also `@ui` library for a shared design system and `classes.scss` to use the *@apply* feature of **TailwindCSS** 
 
-🔎 **Smart, Extensible Build Framework**
 
-## Adding capabilities to your workspace
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@once/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+### Notes
++ There's a NextJS App included but I didn't use it but I believe it could be a great addition to any project
