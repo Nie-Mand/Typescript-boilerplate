@@ -1,6 +1,6 @@
 # Niemands Boilerplate built with NX
 
-This is a boilerplate built with NX, React, NextJS, Express with Typescript Flavour, already configured with TailwindCSS and Redux 
+This is a boilerplate built with NX, React, NextJS, Express with Typescript Flavor, already configured with TailwindCSS and Redux 
 
 
 ## Setup
