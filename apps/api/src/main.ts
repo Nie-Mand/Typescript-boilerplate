@@ -4,7 +4,7 @@ import routes from './routes'
 const app = createServer()
 
 app.use(routes)
-connectToCockroachDb([], async conn => {
+connectToCockroachDb([], async _ => {
   console.log('Connected to CockroachDB 🪳')
   const server = app.listen(process.env.API_PORT, () => {
     console.log(`API Listening at ${process.env.API_PORT}`)

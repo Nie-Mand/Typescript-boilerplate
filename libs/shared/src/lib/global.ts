@@ -1,10 +1,3 @@
-export const getHeader = (defaults: any) => ({
-  headers: {
-    ...defaults,
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-  },
-})
-
 export const objectToString = obj =>
   Object.keys(obj)
     .map(k => `${k}=${obj[k]}`)
